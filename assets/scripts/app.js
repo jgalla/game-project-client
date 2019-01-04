@@ -7,5 +7,12 @@
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+  const gameCells = ['','','','','','','','','']
+
+  for (let i = 0; i < gameCells.length; i++) {
+    $('#cell-' + i).on('click', () => {
+      gameCells[i] = 'test'
+      console.log(gameCells)
+    })
+  }
 })

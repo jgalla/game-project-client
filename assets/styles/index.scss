@@ -1,1 +1,26 @@
 @import '~bootstrap/scss/bootstrap';
+
+$font-color: #000000;
+$white: #fff;
+$grey: rgb(128, 128, 128);
+
+
+.box {
+  align-items: center;
+  border: 1px solid $white;
+  color: $font-color;
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  padding: 14%;
+}
+
+.test {
+  border: 1px solid $grey;
+  height: 550px;
+  padding: 0;
+}
+
+.grey {
+  background-color: $grey;
+}

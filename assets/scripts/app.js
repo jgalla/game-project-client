@@ -7,12 +7,22 @@
 // require('./example')
 
 $(() => {
-  const gameCells = ['','','','','','','','','']
+  const cells = ['','','','','','','','','']
 
-  for (let i = 0; i < gameCells.length; i++) {
+  let user = 'X'
+
+  for (let i = 0; i < cells.length; i++) {
     $('#cell-' + i).on('click', () => {
-      gameCells[i] = 'test'
-      console.log(gameCells)
+      cells[i] = user
+      $('#cell-' + i).append(user)
+      if (user === 'X') {
+        user = 'O'
+      } else {
+        user = 'X'
+      }
+
+      console.log(user)
+      console.log(cells)
     })
   }
 })

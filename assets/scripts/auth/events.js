@@ -11,7 +11,7 @@ const onSignUp = event => {
   api.signUp(formData)
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFailure)
-  // $('form').trigger('reset')
+  $('form').trigger('reset')
 }
 
 const onSignIn = event => {
@@ -21,7 +21,17 @@ const onSignIn = event => {
   api.signIn(formData)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
-  // $('form').trigger('reset')
+  $('form').trigger('reset')
+}
+
+const onChangePassword = event => {
+  event.preventDefault()
+  const formData = getFormFields(event.target)
+
+  api.changePassword(formData)
+    .then(ui.onChangePasswordSuccess)
+    .catch(ui.onChangePasswordFailure)
+  $('form').trigger('reset')
 }
 
 const onSignOut = event => {
@@ -30,10 +40,12 @@ const onSignOut = event => {
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
+  $('form').trigger('reset')
 }
 
 module.exports = {
   onSignUp,
   onSignIn,
+  onChangePassword,
   onSignOut
 }

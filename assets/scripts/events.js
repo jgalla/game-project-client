@@ -13,27 +13,35 @@ const compareCells = function (a, b, c) {
 const checkWinner = () => {
   if (compareCells(cells[0], cells[1], cells[2])) {
     console.log(cells[0], 'won the game')
+    ui.highlightCells(0, 1, 2)
     over = true
   } else if (compareCells(cells[3], cells[4], cells[5])) {
     console.log(cells[3], 'won the game')
+    ui.highlightCells(3, 4, 5)
     over = true
   } else if (compareCells(cells[6], cells[7], cells[8])) {
     console.log(cells[6], 'won the game')
+    ui.highlightCells(6, 7, 8)
     over = true
   } else if (compareCells(cells[0], cells[3], cells[6])) {
     console.log(cells[0], 'won the game')
+    ui.highlightCells(0, 3, 6)
     over = true
   } else if (compareCells(cells[1], cells[4], cells[7])) {
     console.log(cells[1], 'won the game')
+    ui.highlightCells(1, 4, 7)
     over = true
   } else if (compareCells(cells[2], cells[5], cells[8])) {
     console.log(cells[2], 'won the game')
+    ui.highlightCells(2, 5, 8)
     over = true
   } else if (compareCells(cells[0], cells[4], cells[8])) {
     console.log(cells[0], 'won the game')
+    ui.highlightCells(0, 4, 8)
     over = true
   } else if (compareCells(cells[2], cells[4], cells[6])) {
     console.log(cells[2], 'won the game')
+    ui.highlightCells(2, 4, 6)
     over = true
   } else if (cells.every(x => x !== '')) {
     console.log('draw')

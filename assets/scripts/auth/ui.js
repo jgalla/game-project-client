@@ -18,9 +18,21 @@ const onSignInSuccess = (responseData) => {
 const onSignInFailure = () => {
   $('#user-message').text('error on sign in')
 }
+
+const onSignOutSuccess = () => {
+  $('#user-message').text('successfully signed out')
+  store.user = null
+}
+
+const onSignOutFailure = () => {
+  $('#user-message').text('error on sign out')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
-  onSignInFailure
+  onSignInFailure,
+  onSignOutSuccess,
+  onSignOutFailure
 }

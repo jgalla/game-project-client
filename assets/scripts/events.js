@@ -43,11 +43,17 @@ const checkWinner = () => {
 
 const onCellClick = () => {
   let clickId = event.target.id[5]
-  cells[clickId] = user
-  console.log(cells)
-  ui.updateCell(clickId, user)
-  checkWinner()
-  user === 'X' ? user = 'O' : user = 'X'
+  if (cells[clickId] === '' && over === false) {
+    cells[clickId] = user
+    console.log(cells)
+    ui.updateCell(clickId, user)
+    checkWinner()
+    user === 'X' ? user = 'O' : user = 'X'
+  } else if (over === true) {
+      console.log('game is over')
+  } else {
+    console.log('cell is not available, choose again')
+  }
 }
 
 module.exports = {

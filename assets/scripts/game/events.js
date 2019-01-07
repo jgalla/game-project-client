@@ -58,7 +58,7 @@ const onCellClick = () => {
     checkWinner()
     user === 'X' ? user = 'O' : user = 'X'
   } else if (over === true) {
-      console.log('game is over')
+    console.log('game is over')
   } else {
     console.log('cell is not available, choose again')
   }

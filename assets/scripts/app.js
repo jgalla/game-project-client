@@ -1,5 +1,5 @@
 'use strict'
-const events = require('./events.js')
+const gameEvents = require('./game/events.js')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -7,5 +7,5 @@ const events = require('./events.js')
 // require('./example')
 
 $(() => {
-  $('#game-board').on('click', events.onCellClick)
+  $('#game-board').on('click', gameEvents.onCellClick)
 })

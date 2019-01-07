@@ -6,6 +6,9 @@ const authEvents = require('./auth/events.js')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+$('#game-board').hide()
+$('#change-password').hide()
+$('#sign-out').hide()
 
 $(() => {
   $('#game-board').on('click', gameEvents.onCellClick)

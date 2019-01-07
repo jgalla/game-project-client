@@ -13,6 +13,9 @@ const onSignUpFailure = () => {
 const onSignInSuccess = (responseData) => {
   $('#user-message').text('successfully signed in')
   store.user = responseData.user
+  $('#game-board').show()
+  $('#change-password').show()
+  $('#sign-out').show()
 }
 
 const onSignInFailure = () => {

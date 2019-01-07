@@ -10,7 +10,17 @@ const onSignUpFailure = () => {
   $('#user-message').text('error on sign up')
 }
 
+const onSignInSuccess = (responseData) => {
+  $('#user-message').text('successfully signed in')
+  store.user = responseData.user
+}
+
+const onSignInFailure = () => {
+  $('#user-message').text('error on sign in')
+}
 module.exports = {
   onSignUpSuccess,
-  onSignUpFailure
+  onSignUpFailure,
+  onSignInSuccess,
+  onSignInFailure
 }

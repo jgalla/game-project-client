@@ -13,8 +13,8 @@ const highlightCells = (...cells) => {
 }
 
 const onIndexGameSuccess = (responseData) => {
-  $('#user-message').text('start game success')
   store.games = responseData.games
+  $('#user-message').text(store.games.length + ' games played')
   console.log('index store: ', store)
 }
 

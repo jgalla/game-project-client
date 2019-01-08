@@ -27,6 +27,7 @@ const onCreateGameSuccess = (responseData) => {
   store.currentGame = responseData.game
   $('.box').text('')
   $('.box').css('background-color', '')
+  $('#game-board').show()
   console.log('create store: ', store)
 }
 

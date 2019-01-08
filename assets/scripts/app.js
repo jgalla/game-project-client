@@ -8,7 +8,8 @@ const authEvents = require('./auth/events.js')
 // require('./example')
 $('#game-board').hide()
 $('#change-password').hide()
-$('#sign-out').hide()
+$('#sign-out-section').hide()
+$('#create-game-section').hide()
 
 $(() => {
   $('#game-board').on('click', gameEvents.onCellClick)

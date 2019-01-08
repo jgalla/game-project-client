@@ -13,11 +13,11 @@ const onSignUpFailure = () => {
 const onSignInSuccess = (responseData) => {
   $('#user-message').text('successfully signed in')
   store.user = responseData.user
-  $('#game-board').show()
   $('#change-password').show()
-  $('#sign-out').show()
+  $('#sign-out-section').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
+  $('#create-game-section').show()
 }
 
 const onSignInFailure = () => {
@@ -37,9 +37,10 @@ const onSignOutSuccess = () => {
   store.user = null
   $('#game-board').hide()
   $('#change-password').hide()
-  $('#sign-out').hide()
+  $('#sign-out-section').hide()
   $('#sign-up').show()
   $('#sign-in').show()
+  $('#create-game-section').hide()
 }
 
 const onSignOutFailure = () => {

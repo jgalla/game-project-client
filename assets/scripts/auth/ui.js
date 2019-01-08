@@ -16,6 +16,8 @@ const onSignInSuccess = (responseData) => {
   $('#game-board').show()
   $('#change-password').show()
   $('#sign-out').show()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
 }
 
 const onSignInFailure = () => {
@@ -33,6 +35,11 @@ const onChangePasswordFailure = () => {
 const onSignOutSuccess = () => {
   $('#user-message').text('successfully signed out')
   store.user = null
+  $('#game-board').hide()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#sign-up').show()
+  $('#sign-in').show()
 }
 
 const onSignOutFailure = () => {

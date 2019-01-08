@@ -49,10 +49,11 @@ const checkWinner = () => {
     console.log('draw')
     over = true
   }
+  if (over === true) { onUpdateGame(undefined, undefined, true) }
 }
 
 const onCellClick = () => {
-  let clickId = event.target.id[5]
+  const clickId = event.target.id[5]
   if (cells[clickId] === '' && over === false) {
     cells[clickId] = user
     onUpdateGame(clickId, user)
@@ -79,6 +80,7 @@ const onIndexGame = event => {
 const onCreateGame = event => {
   event.preventDefault()
   cells = ['', '', '', '', '', '', '', '', '']
+  over = false
 
   api.createGame()
     .then(ui.onCreateGameSuccess)

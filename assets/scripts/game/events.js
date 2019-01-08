@@ -81,6 +81,7 @@ const onCreateGame = event => {
   event.preventDefault()
   cells = ['', '', '', '', '', '', '', '', '']
   over = false
+  user = 'X'
 
   api.createGame()
     .then(ui.onCreateGameSuccess)

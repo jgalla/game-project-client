@@ -25,6 +25,8 @@ const onIndexGameFailure = () => {
 const onCreateGameSuccess = (responseData) => {
   $('#user-message').text('create game success')
   store.currentGame = responseData.game
+  $('.box').text('')
+  $('.box').css('background-color', '')
   console.log('create store: ', store)
 }
 

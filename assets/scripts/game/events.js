@@ -78,6 +78,7 @@ const onIndexGame = event => {
 
 const onCreateGame = event => {
   event.preventDefault()
+  cells = ['', '', '', '', '', '', '', '', '']
 
   api.createGame()
     .then(ui.onCreateGameSuccess)

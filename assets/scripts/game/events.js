@@ -1,7 +1,8 @@
 const ui = require('./ui.js')
 const api = require('./api.js')
+const store = require('../store')
 
-const cells = ['', '', '', '', '', '', '', '', '']
+let cells = ['', '', '', '', '', '', '', '', '']
 let over = false
 let user = 'X'
 
@@ -54,6 +55,7 @@ const onCellClick = () => {
   let clickId = event.target.id[5]
   if (cells[clickId] === '' && over === false) {
     cells[clickId] = user
+    onUpdateGame(clickId, user)
     console.log(cells)
     ui.updateCell(clickId, user)
     checkWinner()
@@ -80,11 +82,29 @@ const onCreateGame = event => {
   api.createGame()
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)
-  // $('form').trigger('reset')
+}
+
+const onUpdateGame = (cell, user, over) => {
+  // event.preventDefault()
+  const id = store.currentGame.id
+  const data = {
+    game: {
+      cell: {
+        index: cell,
+        value: user
+      },
+      over: over
+    }
+  }
+
+  api.updateGame(id, data)
+    .then(ui.onUpdateGameSuccess)
+    .catch(ui.onUpdateGameFailure)
 }
 
 module.exports = {
   onCellClick,
   onIndexGame,
-  onCreateGame
+  onCreateGame,
+  onUpdateGame
 }

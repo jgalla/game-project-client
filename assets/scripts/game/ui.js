@@ -31,11 +31,24 @@ const onCreateGameSuccess = (responseData) => {
 const onCreateGameFailure = () => {
   $('#user-message').text('error on create game')
 }
+
+const onUpdateGameSuccess = (responseData) => {
+  $('#user-message').text('update game success')
+  store.currentGame = responseData.game
+  console.log('update store: ', store)
+}
+
+const onUpdateGameFailure = () => {
+  $('#user-message').text('error on update game')
+}
+
 module.exports = {
   updateCell,
   highlightCells,
   onIndexGameSuccess,
   onIndexGameFailure,
   onCreateGameSuccess,
-  onCreateGameFailure
+  onCreateGameFailure,
+  onUpdateGameSuccess,
+  onUpdateGameFailure
 }

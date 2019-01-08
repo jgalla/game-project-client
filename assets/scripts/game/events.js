@@ -1,3 +1,5 @@
+'use strict'
+
 const ui = require('./ui.js')
 const api = require('./api.js')
 const store = require('../store')
@@ -14,39 +16,31 @@ const compareCells = function (a, b, c) {
 // check cells array for winner
 const checkWinner = () => {
   if (compareCells(cells[0], cells[1], cells[2])) {
-    console.log(cells[0], 'won the game')
     ui.highlightCells(0, 1, 2)
     over = true
   } else if (compareCells(cells[3], cells[4], cells[5])) {
-    console.log(cells[3], 'won the game')
     ui.highlightCells(3, 4, 5)
     over = true
   } else if (compareCells(cells[6], cells[7], cells[8])) {
-    console.log(cells[6], 'won the game')
     ui.highlightCells(6, 7, 8)
     over = true
   } else if (compareCells(cells[0], cells[3], cells[6])) {
-    console.log(cells[0], 'won the game')
     ui.highlightCells(0, 3, 6)
     over = true
   } else if (compareCells(cells[1], cells[4], cells[7])) {
-    console.log(cells[1], 'won the game')
     ui.highlightCells(1, 4, 7)
     over = true
   } else if (compareCells(cells[2], cells[5], cells[8])) {
-    console.log(cells[2], 'won the game')
     ui.highlightCells(2, 5, 8)
     over = true
   } else if (compareCells(cells[0], cells[4], cells[8])) {
-    console.log(cells[0], 'won the game')
     ui.highlightCells(0, 4, 8)
     over = true
   } else if (compareCells(cells[2], cells[4], cells[6])) {
-    console.log(cells[2], 'won the game')
     ui.highlightCells(2, 4, 6)
     over = true
   } else if (cells.every(x => x !== '')) {
-    console.log('draw')
+    ui.highlightCells(0, 1, 2, 3, 4, 5, 6, 7, 8)
     over = true
   }
   if (over === true) { onUpdateGame(undefined, undefined, true) }
@@ -54,17 +48,19 @@ const checkWinner = () => {
 
 const onCellClick = () => {
   const clickId = event.target.id[5]
+  // check if cell is open and game is not over
   if (cells[clickId] === '' && over === false) {
     cells[clickId] = user
     onUpdateGame(clickId, user)
-    console.log(cells)
     ui.updateCell(clickId, user)
     checkWinner()
     user === 'X' ? user = 'O' : user = 'X'
+    // notify user that game is over
   } else if (over === true) {
-    console.log('game is over')
+    $('#user-message').text('game is over')
+    // notify user that cell is occupied
   } else {
-    console.log('cell is not available, choose again')
+    $('#user-message').text('cell is not available, choose again')
   }
 }
 
@@ -74,7 +70,6 @@ const onIndexGame = event => {
   api.indexGame()
     .then(ui.onIndexGameSuccess)
     .catch(ui.onIndexGameFailure)
-  // $('form').trigger('reset')
 }
 
 const onCreateGame = event => {
@@ -89,7 +84,6 @@ const onCreateGame = event => {
 }
 
 const onUpdateGame = (cell, user, over) => {
-  // event.preventDefault()
   const id = store.currentGame.id
   const data = {
     game: {

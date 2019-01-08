@@ -1,3 +1,5 @@
+'use strict'
+
 const store = require('../store')
 
 // update cell with 'X' or 'O'
@@ -8,14 +10,12 @@ const updateCell = (clickId, user) => {
 const highlightCells = (...cells) => {
   for (let i = 0; i < cells.length; i++) {
     $('#cell-' + cells[i]).css('background-color', 'red')
-    console.log(cells[i])
   }
 }
 
 const onIndexGameSuccess = (responseData) => {
   store.games = responseData.games
   $('#user-message').text(store.games.length + ' games played')
-  console.log('index store: ', store)
 }
 
 const onIndexGameFailure = () => {
@@ -28,7 +28,6 @@ const onCreateGameSuccess = (responseData) => {
   $('.box').text('')
   $('.box').css('background-color', '')
   $('#game-board').show()
-  console.log('create store: ', store)
 }
 
 const onCreateGameFailure = () => {
@@ -38,7 +37,6 @@ const onCreateGameFailure = () => {
 const onUpdateGameSuccess = (responseData) => {
   $('#user-message').text('update game success')
   store.currentGame = responseData.game
-  console.log('update store: ', store)
 }
 
 const onUpdateGameFailure = () => {

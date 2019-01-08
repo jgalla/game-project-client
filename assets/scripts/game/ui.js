@@ -1,3 +1,5 @@
+const store = require('../store')
+
 // update cell with 'X' or 'O'
 const updateCell = (clickId, user) => {
   $('#cell-' + clickId).text(user)
@@ -10,7 +12,30 @@ const highlightCells = (...cells) => {
   }
 }
 
+const onIndexGameSuccess = (responseData) => {
+  $('#user-message').text('start game success')
+  store.games = responseData.games
+  console.log('index store: ', store)
+}
+
+const onIndexGameFailure = () => {
+  $('#user-message').text('error on start game')
+}
+
+const onCreateGameSuccess = (responseData) => {
+  $('#user-message').text('create game success')
+  store.currentGame = responseData.game
+  console.log('create store: ', store)
+}
+
+const onCreateGameFailure = () => {
+  $('#user-message').text('error on create game')
+}
 module.exports = {
   updateCell,
-  highlightCells
+  highlightCells,
+  onIndexGameSuccess,
+  onIndexGameFailure,
+  onCreateGameSuccess,
+  onCreateGameFailure
 }

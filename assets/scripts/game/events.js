@@ -1,4 +1,5 @@
 const ui = require('./ui.js')
+const api = require('./api.js')
 
 const cells = ['', '', '', '', '', '', '', '', '']
 let over = false
@@ -64,6 +65,26 @@ const onCellClick = () => {
   }
 }
 
+const onIndexGame = event => {
+  event.preventDefault()
+
+  api.indexGame()
+    .then(ui.onIndexGameSuccess)
+    .catch(ui.onIndexGameFailure)
+  // $('form').trigger('reset')
+}
+
+const onCreateGame = event => {
+  event.preventDefault()
+
+  api.createGame()
+    .then(ui.onCreateGameSuccess)
+    .catch(ui.onCreateGameFailure)
+  // $('form').trigger('reset')
+}
+
 module.exports = {
-  onCellClick
+  onCellClick,
+  onIndexGame,
+  onCreateGame
 }

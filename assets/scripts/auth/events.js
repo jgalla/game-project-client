@@ -16,7 +16,13 @@ const onSignUp = event => {
 
 const onSignIn = event => {
   event.preventDefault()
-  const formData = getFormFields(event.target)
+  // const formData = getFormFields(event.target)
+  const formData = {
+    credentials: {
+      email: 'one@one',
+      password: 'one'
+    }
+  }
 
   api.signIn(formData)
     .then(ui.onSignInSuccess)

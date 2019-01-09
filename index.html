@@ -12,8 +12,45 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <h1 class="center">Tic Tac Toe</h1>
       <div class="container mt-4">
         <div class="row">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-12 test">
+                <form id="sign-up">
+                  <h4>Sign Up</h4>
+                  <input name="credentials[email]" type="text" placeholder="email">
+                  <input name="credentials[password]" type="password" placeholder="password">
+                  <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+                  <button type="submit">Sign Up</button>
+                </form>
+                <form id="sign-in">
+                  <h4>Sign In</h4>
+                  <input name="credentials[email]" type="text" placeholder="email">
+                  <input name="credentials[password]" type="password" placeholder="password">
+                  <button type="submit">Sign In</button>
+                </form>
+                <form id="change-password">
+                  <h4>Change Password</h4>
+                  <input name="passwords[old]" type="password" placeholder="old password">
+                  <input name="passwords[new]" type="password" placeholder="new password">
+                  <button type="submit">Change Password</button>
+                </form>
+                <div id="sign-out-section">
+                  <h4>Sign Out</h4>
+                  <button type="button" id="sign-out">Sign Out</button>
+                </div>
+                <div id="create-game-section">
+                  <h4>Total Games Played</h4>
+                  <button type="button" id="total-games">Total Games Played</button>
+                  <h4>Create Game</h4>
+                  <button type="button" id="create-game">Create Game</button>
+                </div>
+                <div id="user-message"></div>
+              </div>
+            </div>
+          </div>
           <div class="col-6">
             <div class="embed-responsive embed-responsive-1by1">
               <div id="game-board" class="embed-responsive-item row no-gutters">
@@ -31,42 +68,7 @@
               </div>
             </div>
           </div>
-          <div class="col-6">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 test">
-            <form id="sign-up">
-              <h4>Sign Up</h4>
-              <input name="credentials[email]" type="text" placeholder="email">
-              <input name="credentials[password]" type="password" placeholder="password">
-              <input name="credentials[password_confirmation]" type="password" placeholder="password">
-              <button type="submit">Sign Up</button>
-            </form>
-            <form id="sign-in">
-              <h4>Sign In</h4>
-              <input name="credentials[email]" type="text" placeholder="email">
-              <input name="credentials[password]" type="password" placeholder="password">
-              <button type="submit">Sign In</button>
-            </form>
-            <form id="change-password">
-              <h4>Change Password</h4>
-              <input name="passwords[old]" type="password" placeholder="old password">
-              <input name="passwords[new]" type="password" placeholder="new password">
-              <button type="submit">Change Password</button>
-            </form>
-            <div id="sign-out-section">
-              <h4>Sign Out</h4>
-              <button type="button" id="sign-out">Sign Out</button>
-            </div>
-            <div id="create-game-section">
-              <h4>Total Games Played</h4>
-              <button type="button" id="total-games">Total Games Played</button>
-              <h4>Create Game</h4>
-              <button type="button" id="create-game">Create Game</button>
-            </div>
-            <div id="user-message"></div>
-          </div>
+
         </div>
       </div>
     </body>

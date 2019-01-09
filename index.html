@@ -12,26 +12,30 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <div class="container-fluid">
+      <div class="container mt-4">
         <div class="row">
-          <div id="game-board" class="col-6">
-            <div class="row">
-              <div id="cell-0" class="col-4 box grey"></div>
-              <div id="cell-1" class="col-4 box grey"></div>
-              <div id="cell-2" class="col-4 box grey"></div>
-            </div>
-            <div class="row">
-              <div id="cell-3" class="col-4 box grey"></div>
-              <div id="cell-4" class="col-4 box grey"></div>
-              <div id="cell-5" class="col-4 box grey"></div>
-            </div>
-            <div class="row">
-              <div id="cell-6" class="col-4 box grey"></div>
-              <div id="cell-7" class="col-4 box grey"></div>
-              <div id="cell-8" class="col-4 box grey"></div>
+          <div class="col-6">
+            <div class="embed-responsive embed-responsive-1by1">
+              <div id="game-board" class="embed-responsive-item row">
+                <div id="cell-0" class="col-4 box grey"></div>
+                <div id="cell-1" class="col-4 box grey"></div>
+                <div id="cell-2" class="col-4 box grey"></div>
+
+                <div id="cell-3" class="col-4 box grey"></div>
+                <div id="cell-4" class="col-4 box grey"></div>
+                <div id="cell-5" class="col-4 box grey"></div>
+
+                <div id="cell-6" class="col-4 box grey"></div>
+                <div id="cell-7" class="col-4 box grey"></div>
+                <div id="cell-8" class="col-4 box grey"></div>
+              </div>
             </div>
           </div>
-          <div class="col-6 test">
+          <div class="col-6">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 test">
             <form id="sign-up">
               <h4>Sign Up</h4>
               <input name="credentials[email]" type="text" placeholder="email">

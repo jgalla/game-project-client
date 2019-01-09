@@ -4,23 +4,54 @@ $font-color: #000000;
 $white: #fff;
 $grey: rgb(128, 128, 128);
 
+$grid-border: 1px solid;
+$gameboard-size: 80vmin;
+
+// .box {
+//   align-items: center;
+//   border: 1px solid $white;
+//   color: $font-color;
+//   display: flex;
+//   font-size: 2rem;
+//   justify-content: center;
+//   padding: 14%;
+// }
+
+// .test {
+//   border: 1px solid $grey;
+//   height: 550px;
+//   padding: 0;
+// }
+
+// .grey {
+//   background-color: $grey;
+// }
+
+// .game-board {
+//   height: $gameboard-size;
+//   width: $gameboard-size;
+// }
 
 .box {
+  &:hover {
+    background-color: #ff0000;
+  }
+}
+
+.col-4 {
   align-items: center;
-  border: 1px solid $white;
-  color: $font-color;
+  border-bottom: $grid-border;
+  border-right: $grid-border;
   display: flex;
-  font-size: 2rem;
+  font-size: 10vmin;
+  height: calc(100% / 3);
   justify-content: center;
-  padding: 14%;
-}
 
-.test {
-  border: 1px solid $grey;
-  height: 550px;
-  padding: 0;
-}
+  &:nth-child(3n) {
+    border-right: 0;
+  }
 
-.grey {
-  background-color: $grey;
+  &:nth-last-child(-n + 3) {
+    border-bottom: 0;
+  }
 }

@@ -13,6 +13,10 @@ const highlightCells = (...cells) => {
   }
 }
 
+const onDraw = () => {
+  $('#user-message').text('game is a draw')
+}
+
 const onIndexGameSuccess = (responseData) => {
   store.games = responseData.games
   $('#user-message').text(store.games.length + ' games played')
@@ -35,7 +39,7 @@ const onCreateGameFailure = () => {
 }
 
 const onUpdateGameSuccess = (responseData) => {
-  $('#user-message').text('update game success')
+  // $('#user-message').text('update game success')
   store.currentGame = responseData.game
 }
 
@@ -46,6 +50,7 @@ const onUpdateGameFailure = () => {
 module.exports = {
   updateCell,
   highlightCells,
+  onDraw,
   onIndexGameSuccess,
   onIndexGameFailure,
   onCreateGameSuccess,

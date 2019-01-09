@@ -42,6 +42,7 @@ const checkWinner = () => {
   } else if (cells.every(x => x !== '')) {
     ui.highlightCells(0, 1, 2, 3, 4, 5, 6, 7, 8)
     over = true
+    ui.onDraw()
   }
   if (over === true) { onUpdateGame(undefined, undefined, true) }
 }

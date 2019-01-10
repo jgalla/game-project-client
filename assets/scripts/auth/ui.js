@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const gameUi = require('../game/ui.js')
 
 const onAuthMessage = (message) => {
   $('#auth-message').text(message)
@@ -38,6 +39,7 @@ const onChangePasswordFailure = () => {
 
 const onSignOutSuccess = () => {
   onAuthMessage('Successfully Signed Out')
+  gameUi.onGameMessage('')
   store.user = null
   $('#game-board').hide()
   $('#change-password').hide()

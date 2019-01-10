@@ -31,7 +31,7 @@ const onIndexGameFailure = () => {
 }
 
 const onCreateGameSuccess = (responseData) => {
-  onGameMessage('Ready To Start Game')
+  onGameMessage('Player X, Choose A Cell')
   store.currentGame = responseData.game
   $('.box').text('')
   $('.box').css('background-color', '')
@@ -52,9 +52,9 @@ const onUpdateGameFailure = () => {
 
 const onGameComplete = (winner) => {
   if (winner === 'X') {
-    onGameMessage('Game Over - X Wins')
+    onGameMessage('Game Over - Player X Wins')
   } else if (winner === 'O') {
-    onGameMessage('Game Over - O Wins')
+    onGameMessage('Game Over - Player O Wins')
   } else {
     onGameMessage('Game Over - Draw')
   }

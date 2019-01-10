@@ -7,15 +7,15 @@ const onAuthMessage = (message) => {
 }
 
 const onSignUpSuccess = () => {
-  $('#user-message').text('successfully signed up')
+  onAuthMessage('Successfully Signed Up')
 }
 
 const onSignUpFailure = () => {
-  $('#user-message').text('error on sign up')
+  onAuthMessage('Error On Sign-up')
 }
 
 const onSignInSuccess = (responseData) => {
-  $('#user-message').text('successfully signed in')
+  onAuthMessage('Successfully Signed In')
   store.user = responseData.user
   $('#change-password').show()
   $('#sign-out-section').show()
@@ -25,19 +25,19 @@ const onSignInSuccess = (responseData) => {
 }
 
 const onSignInFailure = () => {
-  $('#user-message').text('error on sign in')
+  onAuthMessage('Error On Sign-in')
 }
 
 const onChangePasswordSuccess = () => {
-  $('#user-message').text('successfully changed password')
+  onAuthMessage('Successfully Changed Password')
 }
 
 const onChangePasswordFailure = () => {
-  $('#user-message').text('error on change password')
+  onAuthMessage('Error On Change Password')
 }
 
 const onSignOutSuccess = () => {
-  $('#user-message').text('successfully signed out')
+  onAuthMessage('Successfully Signed Out')
   store.user = null
   $('#game-board').hide()
   $('#change-password').hide()
@@ -48,10 +48,11 @@ const onSignOutSuccess = () => {
 }
 
 const onSignOutFailure = () => {
-  $('#user-message').text('error on sign out')
+  onAuthMessage('Error On Sign-out')
 }
 
 module.exports = {
+  onAuthMessage,
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,

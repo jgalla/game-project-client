@@ -1,6 +1,7 @@
 'use strict'
 
 const ui = require('./ui.js')
+const authUi = require('../auth/ui.js')
 const api = require('./api.js')
 const store = require('../store')
 
@@ -58,6 +59,7 @@ const checkWinner = () => {
 const onCellClick = () => {
   const clickId = event.target.id[5]
   ui.onGameMessage('')
+  authUi.onAuthMessage('')
   // check if cell is open and game is not over
   if (cells[clickId] === '' && over === false) {
     cells[clickId] = user
@@ -65,6 +67,9 @@ const onCellClick = () => {
     ui.updateCell(clickId, user)
     checkWinner()
     user === 'X' ? user = 'O' : user = 'X'
+    if (over === false) {
+      ui.onGameMessage('Player ' + user + ', Choose A Cell')
+    }
     // notify user that game is over
   } else if (over === true) {
     ui.onGameMessage('Game Is Over - Click Create Game To Play Again')
@@ -84,6 +89,7 @@ const onIndexGame = event => {
 
 const onCreateGame = event => {
   event.preventDefault()
+  authUi.onAuthMessage('')
   cells = ['', '', '', '', '', '', '', '', '']
   over = false
   user = 'X'

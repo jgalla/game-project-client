@@ -20,9 +20,9 @@ const onGameMessage = (message) => {
 const onIndexGameSuccess = (responseData) => {
   store.games = responseData.games
   if (store.games.length === 1) {
-    onGameMessage(store.games.length + ' Game Played')
+    onGameMessage(store.games.length + ' Game Completed')
   } else if (store.games.length === 0 || store.games.length > 1) {
-    onGameMessage(store.games.length + ' Games Played')
+    onGameMessage(store.games.length + ' Games Completed')
   }
 }
 

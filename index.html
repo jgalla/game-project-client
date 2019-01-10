@@ -25,6 +25,7 @@
                   <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
                   <button type="submit">Sign Up</button>
                 </form>
+                <hr>
                 <form id="sign-in">
                   <h4>Sign In</h4>
                   <input name="credentials[email]" type="text" placeholder="email">
@@ -35,18 +36,19 @@
                   <h4>Change Password</h4>
                   <input name="passwords[old]" type="password" placeholder="old password">
                   <input name="passwords[new]" type="password" placeholder="new password">
-                  <button type="submit">Change Password</button>
+                  <button type="submit">Submit</button>
                 </form>
                 <div id="sign-out-section">
-                  <h4>Sign Out</h4>
+                  <hr>
                   <button type="button" id="sign-out">Sign Out</button>
                 </div>
                 <div id="create-game-section">
-                  <h4>Total Games Played</h4>
-                  <button type="button" id="total-games">Total Games Played</button>
-                  <h4>Create Game</h4>
+                  <hr>
+                  <button type="button" id="total-games">Total Games Completed</button>
+                  <hr>
                   <button type="button" id="create-game">Create Game</button>
                 </div>
+                <hr>
                 <div id="auth-message"></div>
               </div>
             </div>
@@ -68,7 +70,6 @@
               </div>
             </div>
             <div id="game-message"></div>
-            <div id="user-message"></div>
           </div>
 
         </div>

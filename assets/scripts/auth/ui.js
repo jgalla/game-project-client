@@ -2,6 +2,10 @@
 
 const store = require('../store')
 
+const onAuthMessage = (message) => {
+  $('#auth-message').text(message)
+}
+
 const onSignUpSuccess = () => {
   $('#user-message').text('successfully signed up')
 }

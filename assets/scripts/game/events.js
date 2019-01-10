@@ -17,38 +17,47 @@ const compareCells = function (a, b, c) {
 const checkWinner = () => {
   if (compareCells(cells[0], cells[1], cells[2])) {
     ui.highlightCells(0, 1, 2)
+    ui.onGameComplete(user)
     over = true
   } else if (compareCells(cells[3], cells[4], cells[5])) {
     ui.highlightCells(3, 4, 5)
+    ui.onGameComplete(user)
     over = true
   } else if (compareCells(cells[6], cells[7], cells[8])) {
     ui.highlightCells(6, 7, 8)
+    ui.onGameComplete(user)
     over = true
   } else if (compareCells(cells[0], cells[3], cells[6])) {
     ui.highlightCells(0, 3, 6)
+    ui.onGameComplete(user)
     over = true
   } else if (compareCells(cells[1], cells[4], cells[7])) {
     ui.highlightCells(1, 4, 7)
+    ui.onGameComplete(user)
     over = true
   } else if (compareCells(cells[2], cells[5], cells[8])) {
     ui.highlightCells(2, 5, 8)
+    ui.onGameComplete(user)
     over = true
   } else if (compareCells(cells[0], cells[4], cells[8])) {
     ui.highlightCells(0, 4, 8)
+    ui.onGameComplete(user)
     over = true
   } else if (compareCells(cells[2], cells[4], cells[6])) {
     ui.highlightCells(2, 4, 6)
+    ui.onGameComplete(user)
     over = true
   } else if (cells.every(x => x !== '')) {
     ui.highlightCells(0, 1, 2, 3, 4, 5, 6, 7, 8)
+    ui.onGameComplete()
     over = true
-    ui.onDraw()
   }
   if (over === true) { onUpdateGame(undefined, undefined, true) }
 }
 
 const onCellClick = () => {
   const clickId = event.target.id[5]
+  ui.onGameMessage('')
   // check if cell is open and game is not over
   if (cells[clickId] === '' && over === false) {
     cells[clickId] = user
@@ -58,10 +67,10 @@ const onCellClick = () => {
     user === 'X' ? user = 'O' : user = 'X'
     // notify user that game is over
   } else if (over === true) {
-    $('#user-message').text('game is over')
+    ui.onGameMessage('Game Is Over - Click Create Game To Play Again')
     // notify user that cell is occupied
   } else {
-    $('#user-message').text('cell is not available, choose again')
+    ui.onGameMessage('Cell Is Not Available, Please Try Again')
   }
 }
 

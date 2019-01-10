@@ -13,21 +13,25 @@ const highlightCells = (...cells) => {
   }
 }
 
-const onDraw = () => {
-  $('#user-message').text('game is a draw')
+const onGameMessage = (message) => {
+  $('#game-message').text(message)
 }
 
 const onIndexGameSuccess = (responseData) => {
   store.games = responseData.games
-  $('#user-message').text(store.games.length + ' games played')
+  if (store.games.length === 1) {
+    onGameMessage(store.games.length + ' Game Played')
+  } else if (store.games.length === 0 || store.games.length > 1) {
+    onGameMessage(store.games.length + ' Games Played')
+  }
 }
 
 const onIndexGameFailure = () => {
-  $('#user-message').text('error on start game')
+  onGameMessage('Error Retreving Games')
 }
 
 const onCreateGameSuccess = (responseData) => {
-  $('#user-message').text('create game success')
+  onGameMessage('Ready To Start Game')
   store.currentGame = responseData.game
   $('.box').text('')
   $('.box').css('background-color', '')
@@ -35,26 +39,36 @@ const onCreateGameSuccess = (responseData) => {
 }
 
 const onCreateGameFailure = () => {
-  $('#user-message').text('error on create game')
+  onGameMessage('Error Creating Game')
 }
 
 const onUpdateGameSuccess = (responseData) => {
-  // $('#user-message').text('update game success')
   store.currentGame = responseData.game
 }
 
 const onUpdateGameFailure = () => {
-  $('#user-message').text('error on update game')
+  onGameMessage('Error Updating Game')
+}
+
+const onGameComplete = (winner) => {
+  if (winner === 'X') {
+    onGameMessage('Game Over - X Wins')
+  } else if (winner === 'O') {
+    onGameMessage('Game Over - O Wins')
+  } else {
+    onGameMessage('Game Over - Draw')
+  }
 }
 
 module.exports = {
   updateCell,
   highlightCells,
-  onDraw,
+  onGameMessage,
   onIndexGameSuccess,
   onIndexGameFailure,
   onCreateGameSuccess,
   onCreateGameFailure,
   onUpdateGameSuccess,
-  onUpdateGameFailure
+  onUpdateGameFailure,
+  onGameComplete
 }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic-Tac-Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1 class="center">Tic Tac Toe</h1>
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-12 test">
+                <form id="sign-up">
+                  <h4>Sign Up</h4>
+                  <input name="credentials[email]" type="text" placeholder="email">
+                  <input name="credentials[password]" type="password" placeholder="password">
+                  <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+                  <button type="submit">Sign Up</button>
+                </form>
+                <hr>
+                <form id="sign-in">
+                  <h4>Sign In</h4>
+                  <input name="credentials[email]" type="text" placeholder="email">
+                  <input name="credentials[password]" type="password" placeholder="password">
+                  <button type="submit">Sign In</button>
+                </form>
+                <form id="change-password">
+                  <h4>Change Password</h4>
+                  <input name="passwords[old]" type="password" placeholder="old password">
+                  <input name="passwords[new]" type="password" placeholder="new password">
+                  <button type="submit">Submit</button>
+                </form>
+                <div id="sign-out-section">
+                  <hr>
+                  <button type="button" id="sign-out">Sign Out</button>
+                </div>
+                <div id="create-game-section">
+                  <hr>
+                  <button type="button" id="total-games">Total Games Completed</button>
+                  <hr>
+                  <button type="button" id="create-game">Create Game</button>
+                </div>
+                <hr>
+                <div id="auth-message"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="embed-responsive embed-responsive-1by1">
+              <div id="game-board" class="embed-responsive-item row no-gutters">
+                <div id="cell-0" class="col-4 box grey"></div>
+                <div id="cell-1" class="col-4 box grey"></div>
+                <div id="cell-2" class="col-4 box grey"></div>
+
+                <div id="cell-3" class="col-4 box grey"></div>
+                <div id="cell-4" class="col-4 box grey"></div>
+                <div id="cell-5" class="col-4 box grey"></div>
+
+                <div id="cell-6" class="col-4 box grey"></div>
+                <div id="cell-7" class="col-4 box grey"></div>
+                <div id="cell-8" class="col-4 box grey"></div>
+              </div>
+            </div>
+            <div id="game-message"></div>
+          </div>
+
+        </div>
+      </div>
+    </body>
+</html>
